@@ -61,6 +61,7 @@
 - id. Serial  primary key,
 - monthly_salary. Int, not null
 
+
 :four: Наполнить таблицу salary 15 строками:
 - 1000
 - 1100
@@ -96,15 +97,14 @@
 - id. Serial  primary key,
 - employee_id. Int, not null, unique
 - salary_id. Int, not null
+
 :six: Наполнить таблицу employee_salary 40 строками:
 - в 10 строк из 40 вставить несуществующие employee_id
 
 id | employee_id | salary_id
-
+--- | --- | --- |
 1 | 3 | 7
-
 2 | 1 | 4
-
 3 | 5 | 9
 
 4 | 40 | 13
