@@ -4,17 +4,17 @@
 -- -id. serial,  primary key,
 -- -employee_name. Varchar(50), not null
 
-create table employees(
-id serial primary key,
-employee_name varchar(50) unique not null
+CREATE TABLE employees(
+id serial PRIMARY KEY,
+employee_name varchar(50) unique NOT NULL
 );
 
 -- Показать таблицу
-select * from employees;
+SELECT * FROM employees;
 
 --2) Наполнить таблицу employee 70 строками.
-insert into employees(employee_name)
-values 
+INSERT INTO employees(employee_name)
+VALUES
 ('Victoria'),
 ('Anna'),
 ('Mary'),
@@ -92,17 +92,17 @@ values
 -- -id. Serial  primary key,
 -- -monthly_salary. Int, not null
 
-create table salary(
-id serial primary key,
-monthly_salary int not null
+CREATE TABLE salary(
+id serial PRIMARY KEY,
+monthly_salary int NOT NULL
 );
 
 -- Показать таблицу
-select * from salary;
+SELECT * FROM salary;
 
 --4) Наполнить таблицу salary 15 строками:
-insert into salary(monthly_salary)
-values 
+INSERT INTO salary(monthly_salary)
+VALUES 
 ('1000'),
 ('1100'),
 ('1200'),
@@ -126,19 +126,19 @@ values
 -- -employee_id. Int, not null, unique
 -- -salary_id. Int, not null
 
-create table employee_salary(
-id serial primary key,
-employee_id int not null unique,
-salary_id int not null
+CREATE TABLE employee_salary(
+id serial PRIMARY KEY,
+employee_id int NOT NULL unique,
+salary_id int NOT NULL
 );
 
 -- Показать таблицу
-select * from employee_salary;
+SELECT * FROM employee_salary;
 
 --6) Наполнить таблицу employee_salary 40 строками:
 -- -в 10 строк из 40 вставить несуществующие employee_id
-insert into employee_salary(employee_id, salary_id)
-values
+INSERT INTO employee_salary(employee_id, salary_id)
+VALUES
 (3,7),
 (1,4),
 (5,9),
@@ -186,23 +186,23 @@ values
 --7)Создать таблицу roles
 -- -id. Serial  primary key,
 -- -role_name. int, not null, unique
-create table roles(
-id serial primary key,
-role_name int not null unique
+CREATE TABLE roles(
+id serial PRIMARY KEY,
+role_name int NOT NULL unique
 );
 -- Показать таблицу
-select * from roles;
+SELECT * FROM roles;
 
 
 --8)Поменять тип столба role_name с int на varchar(30)
-alter table roles alter column role_name type varchar(30);
+ALTER TABLE roles ALTER column role_name TYPE varchar(30);
 
 -- Показать таблицу
-select * from roles;
+SELECT * FROM roles;
 
 --9)Наполнить таблицу roles 20 строками:
-insert into roles(role_name)
-values
+INSERT INTO roles(role_name)
+VALUES
 ('Junior Python developer'),
 ('Middle Python developer'),
 ('Senior Python developer'),
@@ -231,15 +231,18 @@ values
 -- -id. Serial  primary key,
 -- -employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
 -- -role_id. Int, not null (внешний ключ для таблицы roles, поле id)
-create table roles_employee(
-id serial primary key,
-employee_id int not null unique,
-role_id int not null
+CREATE TABLE roles_employee(
+id serial PRIMARY KEY,
+employee_id int NOT NULL unique,
+role_id int NOT NULL,
+FOREIGN KEY (employee_id) REFERENCES employees(id),
+FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
+
 --11) Наполнить таблицу roles_employee 40 строками:
-insert into roles_employee(employee_id, role_id)
-values
+INSERT INTO roles_employee(employee_id, role_id)
+VALUES
 (1,2),
 (2,4),
 (3,9),
@@ -282,6 +285,6 @@ values
 
 
 
-select * from employees;
-select * from employee_salary;
-select * from roles_employee;
+SELECT * FROM employees;
+SELECT * FROM employee_salary;
+SELECT * FROM roles_employee;

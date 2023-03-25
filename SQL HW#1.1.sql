@@ -52,17 +52,17 @@ WHERE "created_on"='2021-03-26 00:00:00';
 -- 10. Вывести пользователей где в имени есть слово Анна
 
 SELECT id, name FROM students
-WHERE "name" like 'Anna%';
+WHERE "name" LIKE 'Anna%';
 
 -- 11. Вывести пользователей где в имени в конце есть 8
 
 SELECT id, name FROM students
-WHERE "name" like '%8';
+WHERE "name" LIKE '%8';
 
 -- 12. Вывести пользователей где в имени в есть буква а
 
 SELECT id, name FROM students
-WHERE "name" like '%a%';
+WHERE "name" LIKE '%a%';
 
 -- 13. Вывести пользователей которые были созданы 2021-07-12 00:00:00
 
@@ -73,19 +73,19 @@ WHERE "created_on"='2021-07-12 00:00:00';
 
 SELECT id, name, password, created_on FROM students
 WHERE "created_on"='2021-07-12 00:00:00' 
-and "password"='1m313';
+AND "password"='1m313';
 
 -- 15. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть слово Andrey
 
 SELECT id, name, created_on FROM students
 WHERE "created_on"='2021-07-12 00:00:00' 
-and "name" like 'Andrey%';
+AND "name" LIKE 'Andrey%';
 
 -- 16. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть цифра 8
 
 SELECT id, name, created_on FROM students
 WHERE "created_on"='2021-07-12 00:00:00' 
-and "name" like '%8%';
+AND "name" LIKE '%8%';
 
 -- 17. Вывести пользователя у которых id равен 110
 
@@ -110,7 +110,7 @@ WHERE "id"<'130';
 -- 21. Вывести пользователя у которых id меньше 127 или больше 188
 
 SELECT * FROM students 
-WHERE "id"<'127'or "id">'188';
+WHERE "id"<'127'OR "id">'188';
 
 -- 22. Вывести пользователя у которых id меньше либо равно 137
 
@@ -125,22 +125,22 @@ WHERE "id">='137';
 -- 24. Вывести пользователя у которых id больше 180 но меньше 190
 
 SELECT * FROM students 
-WHERE "id">'180' and "id"<'190';
+WHERE "id">'180' AND "id"<'190';
 
 -- 25. Вывести пользователя у которых id между 180 и 190
 
 SELECT * FROM students 
-WHERE "id" BETWEEN  '180' and '190';
+WHERE "id" BETWEEN  '180' AND '190';
 
 -- 26. Вывести пользователей где password равен 12333, 1m313, 123313
 
 SELECT * FROM students 
-WHERE "password"='1m313' or "password"='12333' or "password"='123313';
+WHERE "password"='1m313' OR "password"='12333' OR "password"='123313';
 
 -- 27. Вывести пользователей где created_on равен 2020-10-03 00:00:00, 2021-05-19 00:00:00, 2021-03-26 00:00:00
 
 SELECT * FROM students 
-WHERE "created_on"='2020-10-03 00:00:00' or "created_on"='2021-05-19 00:00:00' or "created_on"='2021-03-26 00:00:00';
+WHERE "created_on"='2020-10-03 00:00:00' OR "created_on"='2021-05-19 00:00:00' OR "created_on"='2021-03-26 00:00:00';
 
 -- 28. Вывести минимальный id
 
