@@ -264,7 +264,7 @@ LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
 LEFT JOIN roles ON roles_employee.role_id = roles.id
 LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
 LEFT JOIN salary ON employee_salary.salary_id = salary.id
-WHERE "role_name" LIKE '%Junior%'
+WHERE "role_name" LIKE '%Junior%QA engineer%'
 GROUP BY role_name;
 
 -- 25. Вывести количество QA инженеров
