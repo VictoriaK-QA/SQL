@@ -182,6 +182,17 @@ CREATE TABLE public.students (
 ```
 № | ЗАДАЧА | ЗАПРОС
 --- | --- | --- |
+1 | Вывести все поля и все строки | SELECT * FROM students;
+2 | Вывести всех студентов в таблице | SELECT id, name FROM students;
+3 | 3 | 9
+4 | 5 | 13
+
+
+
+
+
+№ | ЗАДАЧА | ЗАПРОС
+--- | --- | --- |
 1. | Вывести все поля и все строки. | SELECT * FROM students;
 2. | Вывести всех студентов в таблице | SELECT id, name FROM students;
 3. | Вывести только Id пользователей | SELECT id FROM students;
