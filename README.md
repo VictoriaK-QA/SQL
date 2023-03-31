@@ -180,8 +180,7 @@ CREATE TABLE public.students (
  CONSTRAINT students_pkey PRIMARY KEY (id)
 );
 ```
-№ | ЗАДАЧА | ЗАПРОС
---- | --- | --- |
+
  1. | Вывести все поля и все строки. | `SELECT * FROM students;`
  2. | Вывести всех студентов в таблице | `SELECT id, name FROM students;`
  3. | Вывести только Id пользователей | `SELECT id FROM students;`
@@ -266,8 +265,7 @@ CREATE TABLE public.students (
 
 Если для какого-то кейса надо сделать дополнительную таблицу, наполнить её данными, то делайте)
 
-№ | ЗАДАЧА | ЗАПРОС
---- | --- | --- |
+
 1. Вывести всех работников чьи зарплаты есть в базе, вместе с зарплатами.
 ```sql
 SELECT employee_name, monthly_salary 
