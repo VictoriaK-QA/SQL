@@ -765,6 +765,6 @@ WHERE
 `<` | меньше | :black_circle: | `<=` | меньше или равно
 
 
-![JOIN][https://i.pinimg.com/originals/fd/59/1b/fd591b77b6616624f918a9284c450c56.png]
+![JOIN](https://i.pinimg.com/originals/fd/59/1b/fd591b77b6616624f918a9284c450c56.png)
 
 </details>
