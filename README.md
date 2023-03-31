@@ -180,19 +180,20 @@ CREATE TABLE public.students (
  CONSTRAINT students_pkey PRIMARY KEY (id)
 );
 ```
-
- 1. | Вывести все поля и все строки. | `SELECT * FROM students;`
- 2. | Вывести всех студентов в таблице | `SELECT id, name FROM students;`
- 3. | Вывести только Id пользователей | `SELECT id FROM students;`
- 4. | Вывести только имя пользователей | `SELECT name FROM students;`
- 5. | Вывести только email пользователей | `SELECT email FROM students;`
- 6. | Вывести имя и email пользователей | `SELECT name, email FROM students;`
- 7. | Вывести id, имя, email и дату создания пользователей | `SELECT id, name, email, created_on FROM students;` 
- 8. | Вывести пользователей где password 12333 | `SELECT id, name, password FROM students` 
- `WHERE "password"='12333';`
- 9. | Вывести пользователей которые были созданы 2021-03-26 00:00:00 | `SELECT id, name, created_on FROM students` 
- `WHERE "created_on"='2021-03-26 00:00:00';`
- 10. | Вывести пользователей где в имени есть слово Анна | `SELECT id, name FROM students`
+№ | ЗАДАЧА | ЗАПРОС
+--- | --- | --- |
+1. | Вывести все поля и все строки. | SELECT * FROM students;
+2. | Вывести всех студентов в таблице | SELECT id, name FROM students;
+3. | Вывести только Id пользователей | SELECT id FROM students;
+4. | Вывести только имя пользователей | SELECT name FROM students;
+5. | Вывести только email пользователей | SELECT email FROM students; 
+6. | Вывести имя и email пользователей | `SELECT name, email FROM students;`
+7. | Вывести id, имя, email и дату создания пользователей | `SELECT id, name, email, created_on FROM students;` 
+8. | Вывести пользователей где password 12333 | `SELECT id, name, password FROM students` 
+`WHERE "password"='12333';`
+9. | Вывести пользователей которые были созданы 2021-03-26 00:00:00 | `SELECT id, name, created_on FROM students` 
+`WHERE "created_on"='2021-03-26 00:00:00';`
+10. | Вывести пользователей где в имени есть слово Анна | `SELECT id, name FROM students`
 `WHERE "name" LIKE 'Anna%';`
  11. | Вывести пользователей где в имени в конце есть 8 | `SELECT id, name FROM students`
 `WHERE "name" LIKE '%8';`
