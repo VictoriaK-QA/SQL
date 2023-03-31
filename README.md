@@ -180,39 +180,68 @@ CREATE TABLE public.students (
  CONSTRAINT students_pkey PRIMARY KEY (id)
 );
 ```
-
- 1. Вывести все поля и все строки.
- 2. Вывести всех студентов в таблице
- 3. Вывести только Id пользователей
- 4. Вывести только имя пользователей
- 5. Вывести только email пользователей
- 6. Вывести имя и email пользователей
- 7. Вывести id, имя, email и дату создания пользователей
- 8. Вывести пользователей где password 12333
- 9. Вывести пользователей которые были созданы 2021-03-26 00:00:00
- 10. Вывести пользователей где в имени есть слово Анна
- 11. Вывести пользователей где в имени в конце есть 8
- 12. Вывести пользователей где в имени в есть буква а
- 13. Вывести пользователей которые были созданы 2021-07-12 00:00:00
- 14. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и имеют пароль 1m313
- 15. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть слово Andrey
- 16. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть цифра 8
- 17. Вывести пользователя у которых id равен 110
- 18. Вывести пользователя у которых id равен 153
- 19. Вывести пользователя у которых id больше 140
- 20. Вывести пользователя у которых id меньше 130
- 21. Вывести пользователя у которых id меньше 127 или больше 188
- 22. Вывести пользователя у которых id меньше либо равно 137
- 23. Вывести пользователя у которых id больше либо равно 137
- 24. Вывести пользователя у которых id больше 180 но меньше 190
- 25. Вывести пользователя у которых id между 180 и 190
- 26. Вывести пользователей где password равен 12333, 1m313, 123313
- 27. Вывести пользователей где created_on равен 2020-10-03 00:00:00, 2021-05-19 00:00:00, 2021-03-26 00:00:00
- 28. Вывести минимальный id 
- 29. Вывести максимальный.
- 30. Вывести количество пользователей
- 31. Вывести id пользователя, имя, дату создания пользователя. Отсортировать по порядку возрастания даты добавления пользоватлеля.
- 32. Вывести id пользователя, имя, дату создания пользователя. Отсортировать по порядку убывания даты добавления пользоватлеля.
+№ | ЗАДАЧА | ЗАПРОС
+--- | --- | --- |
+ 1. | Вывести все поля и все строки. | `SELECT * FROM students;`
+ 2. | Вывести всех студентов в таблице | `SELECT id, name FROM students;`
+ 3. | Вывести только Id пользователей | `SELECT id FROM students;`
+ 4. | Вывести только имя пользователей | `SELECT name FROM students;`
+ 5. | Вывести только email пользователей | `SELECT email FROM students;`
+ 6. | Вывести имя и email пользователей | `SELECT name, email FROM students;`
+ 7. | Вывести id, имя, email и дату создания пользователей | `SELECT id, name, email, created_on FROM students;` 
+ 8. | Вывести пользователей где password 12333 | `SELECT id, name, password FROM students` 
+ `WHERE "password"='12333';`
+ 9. | Вывести пользователей которые были созданы 2021-03-26 00:00:00 | `SELECT id, name, created_on FROM students` 
+ `WHERE "created_on"='2021-03-26 00:00:00';`
+ 10. | Вывести пользователей где в имени есть слово Анна | `SELECT id, name FROM students`
+`WHERE "name" LIKE 'Anna%';`
+ 11. | Вывести пользователей где в имени в конце есть 8 | `SELECT id, name FROM students`
+`WHERE "name" LIKE '%8';`
+ 12. | Вывести пользователей где в имени в есть буква а | `SELECT id, name FROM students`
+`WHERE "name" LIKE '%a%';`
+ 13. | Вывести пользователей которые были созданы 2021-07-12 00:00:00 | `SELECT id, name, created_on FROM students`
+`WHERE "created_on"='2021-07-12 00:00:00';`
+ 14. | Вывести пользователей которые были созданы 2021-07-12 00:00:00 и имеют пароль 1m313 | `SELECT id, name, password, created_on FROM students`
+`WHERE "created_on"='2021-07-12 00:00:00'` 
+`AND "password"='1m313';` 
+ 15. | Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть слово Andrey | `SELECT id, name, created_on FROM students`
+`WHERE "created_on"='2021-07-12 00:00:00'` 
+`AND "name" LIKE 'Andrey%';` 
+ 16. | Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть цифра 8 | `SELECT id, name, created_on FROM students`
+`WHERE "created_on"='2021-07-12 00:00:00'` 
+`AND "name" LIKE '%8%';`
+ 17. | Вывести пользователя у которых id равен 110 | `SELECT * FROM students`
+`WHERE "id"='110';`
+ 18. | Вывести пользователя у которых id равен 153 | `SELECT * FROM students` 
+`WHERE "id"='153';`
+ 19. | Вывести пользователя у которых id больше 140 | `SELECT * FROM students` 
+`WHERE "id">'140';`
+ 20. | Вывести пользователя у которых id меньше 130 | `SELECT * FROM students` 
+`WHERE "id"<'130';`
+ 21. | Вывести пользователя у которых id меньше 127 или больше 188 | `SELECT * FROM students` 
+`WHERE "id"<'127'OR "id">'188';`
+ 22. | Вывести пользователя у которых id меньше либо равно 137 | `SELECT * FROM students` 
+`WHERE "id"<='137';`
+ 23. | Вывести пользователя у которых id больше либо равно 137 | `SELECT * FROM students` 
+`WHERE "id">='137';`
+ 24. | Вывести пользователя у которых id больше 180 но меньше 190 | `SELECT * FROM students` 
+`WHERE "id">'180' AND "id"<'190';` 
+ 25. | Вывести пользователя у которых id между 180 и 190 | `SELECT * FROM students` 
+`WHERE "id" BETWEEN  '180' AND '190';`
+ 26. | Вывести пользователей где password равен 12333, 1m313, 123313 | `SELECT * FROM students` 
+`WHERE "password"='1m313' OR "password"='12333' OR "password"='123313';`
+ 27. | Вывести пользователей где created_on равен 2020-10-03 00:00:00, 2021-05-19 00:00:00, 2021-03-26 00:00:00 | `SELECT * FROM students` 
+`WHERE "created_on"='2020-10-03 00:00:00' OR "created_on"='2021-05-19 00:00:00' OR "created_on"='2021-03-26 00:00:00';`
+ 28. | Вывести минимальный id  | `SELECT MIN(id)`
+`FROM students;`
+ 29. | Вывести максимальный. | `SELECT MAX(id)`
+`FROM students;`
+ 30. | Вывести количество пользователей | `SELECT COUNT(id)`
+`FROM students;`
+ 31. | Вывести id пользователя, имя, дату создания пользователя. Отсортировать по порядку возрастания даты добавления пользоватлеля. | `SELECT id, name, created_on FROM students`
+`ORDER BY created_on;`
+ 32. | Вывести id пользователя, имя, дату создания пользователя. Отсортировать по порядку убывания даты добавления пользоватлеля. | `SELECT id, name, created_on FROM students`
+`ORDER BY created_on DESC;`
 
 
 </details>
@@ -237,41 +266,487 @@ CREATE TABLE public.students (
 
 Если для какого-то кейса надо сделать дополнительную таблицу, наполнить её данными, то делайте)
 
+№ | ЗАДАЧА | ЗАПРОС
+--- | --- | --- |
+1. Вывести всех работников чьи зарплаты есть в базе, вместе с зарплатами.
+```sql
+SELECT employee_name, monthly_salary 
+FROM employee_salary
+INNER JOIN employees ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id;
+```
 
- 1. Вывести всех работников чьи зарплаты есть в базе, вместе с зарплатами.
- 2. Вывести всех работников у которых ЗП меньше 2000.
- 3. Вывести все зарплатные позиции, но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
- 4. Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
- 5. Найти всех работников кому не начислена ЗП.
- 6. Вывести всех работников с названиями их должности.
- 7. Вывести имена и должность только Java разработчиков.
- 8. Вывести имена и должность только Python разработчиков.
- 9. Вывести имена и должность всех QA инженеров.
- 10. Вывести имена и должность ручных QA инженеров.
- 11. Вывести имена и должность автоматизаторов QA
- 12. Вывести имена и зарплаты Junior специалистов
- 13. Вывести имена и зарплаты Middle специалистов
- 14. Вывести имена и зарплаты Senior специалистов
- 15. Вывести зарплаты Java разработчиков
- 16. Вывести зарплаты Python разработчиков
- 17. Вывести имена и зарплаты Junior Python разработчиков
- 18. Вывести имена и зарплаты Middle JS разработчиков
- 19. Вывести имена и зарплаты Senior Java разработчиков
- 20. Вывести зарплаты Junior QA инженеров
- 21. Вывести среднюю зарплату всех Junior специалистов
- 22. Вывести сумму зарплат JS разработчиков
- 23. Вывести минимальную ЗП QA инженеров
- 24. Вывести максимальную ЗП QA инженеров
- 25. Вывести количество QA инженеров
- 26. Вывести количество Middle специалистов.
- 27. Вывести количество разработчиков
- 28. Вывести фонд (сумму) зарплаты разработчиков.
- 29. Вывести имена, должности и ЗП всех специалистов по возрастанию
- 30. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300
- 31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000
+2. Вывести всех работников у которых ЗП меньше 2000.
+```sql
+SELECT employee_name, monthly_salary 
+FROM employee_salary 
+INNER JOIN employees ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "monthly_salary"<'2000';
+```
+
+3. Вывести все зарплатные позиции, но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
+```sql
+SELECT employee_name, monthly_salary
+FROM salary 
+LEFT JOIN employee_salary ON employee_salary.salary_id = salary.id
+LEFT JOIN employees ON employee_salary.employee_id = employees.id
+WHERE employees.employee_name IS NULL;
+```
+
+4. Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
+```sql
+SELECT employee_name, monthly_salary
+FROM salary 
+LEFT JOIN employee_salary ON employee_salary.salary_id = salary.id
+LEFT JOIN employees ON employee_salary.employee_id = employees.id
+WHERE employees.employee_name IS NULL AND "monthly_salary"<'2000';
+```
+
+5. Найти всех работников кому не начислена ЗП.
+```sql
+SELECT employee_name, monthly_salary
+FROM salary 
+RIGHT JOIN employee_salary ON employee_salary.salary_id = salary.id
+RIGHT JOIN employees ON employee_salary.employee_id = employees.id
+WHERE salary.monthly_salary IS NULL;
+```
+
+6. Вывести всех работников с названиями их должности.
+```sql
+SELECT employee_name, role_name
+FROM roles_employee 
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employees ON roles_employee.employee_id = employees.id;
+```
+
+7. Вывести имена и должность только Java разработчиков.
+```sql
+SELECT employee_name, role_name
+FROM roles_employee
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employees ON roles_employee.employee_id = employees.id
+WHERE "role_name" LIKE '%Java developer%';
+```
+
+8. Вывести имена и должность только Python разработчиков.
+```sql
+SELECT employee_name, role_name
+FROM roles_employee
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employees ON roles_employee.employee_id = employees.id
+WHERE "role_name" LIKE '%Python%';
+```
+
+9. Вывести имена и должность всех QA инженеров.
+```sql
+SELECT employee_name, role_name
+FROM roles_employee
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employees ON roles_employee.employee_id = employees.id
+WHERE "role_name" LIKE '%QA%';
+```
+
+10. Вывести имена и должность ручных QA инженеров.
+```sql
+SELECT employee_name, role_name
+FROM roles_employee
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employees ON roles_employee.employee_id = employees.id
+WHERE "role_name" LIKE '%QA%' AND "role_name" LIKE '%Manual%';
+```
+
+11. Вывести имена и должность автоматизаторов QA.
+```sql
+SELECT employee_name, role_name
+FROM roles_employee
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employees ON roles_employee.employee_id = employees.id
+WHERE "role_name" LIKE '%QA%' AND "role_name" LIKE '%Auto%';
+```
+
+12. Вывести имена и зарплаты Junior специалистов.
+```sql
+SELECT employee_name, monthly_salary, role_name
+FROM employees
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Junior%';
+```
+
+13. Вывести имена и зарплаты Middle специалистов.
+```sql
+SELECT employee_name, monthly_salary, role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Middle%';
+```
+
+14. Вывести имена и зарплаты Senior специалистов.
+```sql
+SELECT employee_name, monthly_salary,role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Senior%';
+```
+
+15. Вывести зарплаты Java разработчиков.
+```sql
+SELECT monthly_salary, role_name 
+FROM employees
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Java developer%';
+```
+
+16. Вывести зарплаты Python разработчиков.
+```sql
+SELECT monthly_salary, role_name 
+FROM employees
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Python%';
+```
+
+17. Вывести имена и зарплаты Junior Python разработчиков.
+```sql
+SELECT employee_name, monthly_salary, role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE 'Junior Python developer';
+```
+
+18. Вывести имена и зарплаты Middle JS разработчиков.
+```sql
+SELECT employee_name, monthly_salary, role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE 'Middle JavaScript developer';
+```
+
+19. Вывести имена и зарплаты Senior Java разработчиков.
+```sql
+SELECT employee_name, monthly_salary, role_name
+FROM employees
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE 'Senior Java developer';
+```
+
+20. Вывести зарплаты Junior QA инженеров.
+```sql
+SELECT monthly_salary, role_name
+FROM employees
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Junior%QA engineer%';
+```
+
+21. Вывести среднюю зарплату всех Junior специалистов.
+```sql
+SELECT AVG (salary.monthly_salary) as avg_salary_junior
+FROM employees 
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Junior%';
+```
+
+22. Вывести сумму зарплат JS разработчиков.
+```sql
+SELECT SUM (salary.monthly_salary) as sum_salary_JS
+FROM employees
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%JavaScript developer';
+```
+
+23. Вывести минимальную ЗП QA инженеров.
+```sql
+SELECT MIN (salary.monthly_salary) as min_salary_qa
+FROM employees 
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Junior%QA engineer%';
+```
+
+24. Вывести максимальную ЗП QA инженеров.
+```sql
+SELECT MAX (salary.monthly_salary) as max_salary_qa
+FROM employees
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Junior%QA engineer%';
+```
+
+25. Вывести количество QA инженеров.
+```sql
+SELECT COUNT (roles.role_name) as sum_QA
+FROM employees
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%QA%';
+```
+
+26. Вывести количество Middle специалистов.
+```sql
+SELECT COUNT (roles.role_name) as sum_Middle
+FROM employees
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%Middle%';
+```
+
+27. Вывести количество разработчиков.
+```sql
+SELECT COUNT (roles.role_name) as sum_developer
+FROM employees 
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%developer%';
+```
+
+28. Вывести фонд (сумму) зарплаты разработчиков. 
+```sql
+SELECT SUM (salary.monthly_salary) as sum_salary_developer
+FROM employees
+LEFT JOIN roles_employee ON roles_employee.employee_id = employees.id
+LEFT JOIN roles ON roles_employee.role_id = roles.id
+LEFT JOIN employee_salary ON employee_salary.employee_id = employees.id
+LEFT JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "role_name" LIKE '%developer%';
+```
+
+29. Вывести имена, должности и ЗП всех специалистов по возрастанию.
+```sql
+SELECT employee_name, monthly_salary, role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+ORDER BY monthly_salary;
+```
+
+30. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300.
+```sql
+SELECT employee_name, monthly_salary, role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "monthly_salary">='1700' AND "monthly_salary"<='2300'
+ORDER BY monthly_salary;
+```
+
+31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300.
+```sql
+SELECT employee_name, monthly_salary, role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "monthly_salary"<'2300'
+ORDER BY monthly_salary;
+```
+
+32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000.
+```sql 
+SELECT employee_name, monthly_salary, role_name 
+FROM employees 
+INNER JOIN roles_employee ON roles_employee.employee_id = employees.id
+INNER JOIN roles ON roles_employee.role_id = roles.id
+INNER JOIN employee_salary ON employee_salary.employee_id = employees.id
+INNER JOIN salary ON employee_salary.salary_id = salary.id
+WHERE "monthly_salary"='1100' OR "monthly_salary"='1500' OR "monthly_salary"='2000'
+ORDER BY monthly_salary;
+```
 
 
 </details>
 
 ---
+
+
+<details>
+
+  <summary>SQL_запрос</summary>
+
+```sql
+-- однострочный комментарий на языке SQL
+
+/* многострочный
+комментарий
+*/
+```
+
+```sql
+-- Выборка определённых столбцов из таблицы
+SELECT
+название_столбца_1,
+название_столбца_2,
+название_столбца_3 ...
+FROM
+название_таблицы;
+```
+
+```sql
+-- Выборка всех столбцов в таблице
+SELECT * FROM название_таблицы;
+```
+
+```sql
+-- Выборка из таблицы по условию
+SELECT
+название_столбца_1,
+название_столбца_2 -- выбери названия столбцов
+FROM название_таблицы -- укажи таблицу
+WHERE условие; -- определи условие, по которому ты будешь отбирать строки
+```
+
+```sql
+/* Выборка строк, в которых значение в поле_1 находится
+между значение_1 и значение_2 включительно */
+SELECT * FROM название_таблицы
+WHERE поле_1 BETWEEN значение_1 AND значение_2;
+```
+
+```sql
+-- Выборка, в которой все значения поля находятся в определённом списке
+SELECT * FROM название_таблицы
+WHERE название_столбца IN ('значение_1','значение_2','значение_3');
+```
+
+```sql
+-- Подсчёт числа строк в выборке
+SELECT
+COUNT(*) AS cnt,
+COUNT(column) AS cnt_column, -- возвращает число строк в столбце column
+COUNT(DISTINCT column) AS cnt_distinct_column,
+/* возвращает количество уникальных значений
+в столбце column */
+SUM(column) AS sum_column, -- сумма значений в столбце
+AVG(column) AS sum_column, -- среднее значение в столбце
+MIN(column) AS sum_column, -- минимальное значение в столбце
+MAX(column) AS sum_column -- максимальное значение в столбце
+FROM
+table;
+```
+
+```sql
+-- Привести столбец к другому типу данных
+CAST (название_столбца AS тип_данных)
+название_столбца :: тип_данных
+```
+
+```sql
+-- Разделить данные по группам по значению полей
+SELECT
+поле_1,
+поле_2,
+...,
+поле_n,
+АГРЕГИРУЮЩАЯ_ФУНКЦИЯ(поле) AS here_you_are
+FROM таблица
+WHERE условие -- если необходимо
+GROUP BY 
+поле_1,
+поле_2,
+...,
+поле_n
+```
+
+```sql
+-- Сортировка данных
+SELECT
+поле_1,
+поле_2,
+...,
+поле_n,
+АГРЕГИРУЮЩАЯ_ФУНКЦИЯ(поле) AS here_you_are
+FROM таблица
+WHERE условие -- если необходимо
+GROUP BY
+поле_1,
+поле_2,
+...,
+поле_n
+ORDER BY -- если необходимо, перечисли только те поля,
+-- по которым ты сортируешь таблицу
+поле_1 DESC, -- сортировка данных по убыванию
+поле_2 ASC, -- сортировка данных по возрастанию
+...,
+поле_n, -- сортировка данных по возрастанию
+here_you_are
+LIMIT -- если необходимо
+n -- n - максимальное количество строк, которое вернёт такой запрос
+```
+
+```sql
+-- Добавление данных
+INSERT INTO
+название_таблицы
+(название_столбца_1,название_столбца_2, название_столбца_3 ... )
+-- блок с названиями столбцов необязательный
+VALUES
+(значение_1,значение_2,значение_3...)
+```
+
+```sql
+-- Изменение текущей информации в таблице
+UPDATE
+название_таблицы
+SET
+Шпаргалка: SQL как инструмент работы с данными 4
+имя_столбца = значение_поля
+WHERE
+условие; -- определяем условие, по которому будем отбирать строки
+```
+
+```sql
+-- Удаление данных из таблицы
+DELETE FROM
+название_таблицы
+WHERE
+условие; -- определяем условие, по которому будем отбирать строки
+```
+
+
+</details>
